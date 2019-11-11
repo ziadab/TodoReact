@@ -14,7 +14,7 @@ class App extends React.Component{
       {
         id: 2,
         title: "Toxicity",
-        done: false
+        done: true
       },
       {
         id: 3,
