@@ -5,7 +5,8 @@ export class TodosItem extends Component {
 
     getStyle = () => {
         return {
-            margin: 0,
+            padding: "5px",
+            borderBottom: "1px #fff solid",
             textDecoration: this.props.todo.done ? "line-through": "none",
             backgroundColor: "#282c34",
             color: '#fff    '
@@ -14,9 +15,14 @@ export class TodosItem extends Component {
 
     render() {
         return (
-            <p style={this.getStyle()}>
-                {this.props.todo.title}
-            </p>
+            
+            <div  style={this.getStyle()}>
+                <p>
+                    <input type="checkbox"/>{" "}
+                    {this.props.todo.title}
+                </p>
+            </div>
+
         )
     }
 }
