@@ -1,11 +1,21 @@
-import React from 'react';
-import Todos from './components/Todos'
+import React from "react";
+import Todos from "./components/Todos";
 
-
-class App extends React.Component{
+class App extends React.Component {
+  markDone = id => {
+    //console.log(`Thla! hmm ${id}`);
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.done = !todo.done;
+        }
+        return todo;
+      })
+    });
+  };
 
   state = {
-    todos : [
+    todos: [
       {
         id: 1,
         title: "Press F to pay respect",
@@ -14,7 +24,7 @@ class App extends React.Component{
       {
         id: 2,
         title: "Toxicity",
-        done: true
+        done: false
       },
       {
         id: 3,
@@ -22,18 +32,17 @@ class App extends React.Component{
         done: false
       }
     ]
-  }
+  };
 
-  render(){
+  render() {
     //console.log(this.state.todos)
     return (
-    
       <div>
         <header>
-          <Todos todos={this.state.todos}/>
+          <Todos todos={this.state.todos} markDone={this.markDone} />
         </header>
       </div>
-    )
+    );
   }
 }
 

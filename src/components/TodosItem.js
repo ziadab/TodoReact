@@ -13,11 +13,15 @@ export class TodosItem extends Component {
   };
 
   render() {
+    const { id, title } = this.props.todo;
     return (
       <div style={this.getStyle()}>
         <p>
-          <input type="checkbox" onChange={this.props.markDone} />{" "}
-          {this.props.todo.title}
+          <input
+            type="checkbox"
+            onChange={this.props.markDone.bind(this, id)}
+          />{" "}
+          {title}
         </p>
       </div>
     );
