@@ -22,12 +22,20 @@ export class TodosItem extends Component {
             onChange={this.props.markDone.bind(this, id)}
           />{" "}
           {title}
+          <button style={deleteStyle}>x</button>
         </p>
       </div>
     );
   }
 }
-
+const deleteStyle = {
+  backgroundColor: "#ED5E68",
+  color: "#fff",
+  border: "none",
+  cursor: "pointer",
+  float: "right",
+  padding: "10px 20px"
+};
 TodosItem.propTypes = {
   todo: PropTypes.object.isRequired
 };
