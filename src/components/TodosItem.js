@@ -7,7 +7,7 @@ export class TodosItem extends Component {
       padding: "5px",
       borderBottom: "1px #fff solid",
       textDecoration: this.props.todo.done ? "line-through" : "none",
-      backgroundColor: "#282c34",
+      backgroundColor: "#024959",
       color: "#fff    "
     };
   };

@@ -1,8 +1,13 @@
 import React from "react";
 import Todos from "./components/Todos";
 import Header from "./components/layout/Header"
+import AddToDo from "./components/AddToDo";
 
 class App extends React.Component {
+
+  addTodo = (title) => {
+    console.log(title);
+  }
 
   del = (id) => {
     console.log(`u click me piece of shit ${id}`)
@@ -46,9 +51,11 @@ class App extends React.Component {
     return (
       <div>
         <Header/>
+        <AddToDo addTodo={this.addTodo}/>
         <header>
           <Todos del={this.del} todos={this.state.todos} markDone={this.markDone} />
         </header>
+       
       </div>
     );
   }
