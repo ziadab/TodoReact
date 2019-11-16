@@ -22,7 +22,7 @@ export class TodosItem extends Component {
             onChange={this.props.markDone.bind(this, id)}
           />{" "}
           {title}
-          <button style={deleteStyle}>x</button>
+          <button style={deleteStyle} onClick={this.props.del.bind(this, id)}>x</button>
         </p>
       </div>
     );
