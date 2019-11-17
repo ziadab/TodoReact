@@ -3,6 +3,8 @@ import Todos from "./components/Todos";
 import Header from "./components/layout/Header"
 import AddToDo from "./components/AddToDo";
 import uuid from "uuid";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import About from "./components/pages/About"
 
 class App extends React.Component {
 
@@ -56,14 +58,18 @@ class App extends React.Component {
   render() {
     //console.log(this.state.todos)
     return (
-      <div>
-        <Header/>
-        <AddToDo addTodo={this.addTodo}/>
-        <header>
-          <Todos del={this.del} todos={this.state.todos} markDone={this.markDone} />
-        </header>
-       
-      </div>
+      <Router>
+        <div>
+          <Header/>
+          <Route path="/" exact render={props => (
+            <React.Fragment>
+              <AddToDo addTodo={this.addTodo}/>
+              <Todos del={this.del} todos={this.state.todos} markDone={this.markDone} />
+            </React.Fragment>
+          )} />
+          <Route path="/about" component={About}/>
+        </div>
+      </Router>
     );
   }
 }
